@@ -1,0 +1,134 @@
+/* Custom CSS for the Hotel Concierge Chat */
+
+/* Chat container */
+.chat-container {
+    min-height: 400px;
+    max-height: 60vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#chat-messages {
+    overflow-y: auto;
+    flex-grow: 1;
+    min-height: 300px;
+    max-height: 50vh;
+}
+
+/* Message styling */
+.message {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-content {
+    padding: 12px 15px;
+    border-radius: 8px;
+    max-width: 85%;
+}
+
+.user-message {
+    align-items: flex-end;
+}
+
+.assistant-message {
+    align-items: flex-start;
+}
+
+.user-message .message-content {
+    background-color: var(--bs-primary-bg-subtle);
+    color: var(--bs-primary-text);
+}
+
+.assistant-message .message-content {
+    background-color: var(--bs-dark-bg-subtle);
+    color: var(--bs-body-color);
+}
+
+/* Typing indicator */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+}
+
+.typing-indicator span {
+    height: 10px;
+    width: 10px;
+    margin: 0 2px;
+    background-color: var(--bs-secondary);
+    display: block;
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: typing 1s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0% {
+        opacity: 0.4;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-5px);
+    }
+    100% {
+        opacity: 0.4;
+        transform: translateY(0);
+    }
+}
+
+/* Quick information styling */
+.quick-info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.quick-info-item i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--bs-primary);
+}
+
+.quick-info-item p {
+    margin-bottom: 0;
+}
+
+/* Suggestion chips */
+.suggestion-chips {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.suggestion-chip {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.suggestion-chip:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .message-content {
+        max-width: 90%;
+    }
+    
+    .chat-container {
+        min-height: 350px;
+    }
+    
+    #chat-messages {
+        min-height: 250px;
+    }
+}
